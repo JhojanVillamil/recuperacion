@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
+    <title>Jhojan Villamil</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="js/main.js"> </script>
+</head>
+<body>
+  
+  //--//--///--///--//--//
+
+    <h2>Primer algoritmo</h2>
+    <form>
+        <input id="nombre" type="text" placeholder="Insertar nombre..." />
+        <button onclick="insertarNombre(event)">Insertar</button>
+  
+      </form>
+      <div>
+        <ul id="lista-nombres"></ul>
+      </div>
+     
+      //--//--///--///--//--//
+
+    <h2>Segundo algoritmo</h2>
+    <button type="button" onclick="generarNumeros()">Generar lista</button>
+    <select id="elementos">
+        
+    </select>
+    
+    //--//--///--///--//--//
+
+    <h2>Tercer algoritmo</h2>
+    <script type="text/javascript">
+        // Modificar el formato de presentación en mostrar_hora()
+        function mostrar_hora() {
+            //objeto Date con la hora y fecha de hoy según la hora local
+            var hoy = new Date();
+            var horas = hoy.getHours();
+            var minutos = hoy.getMinutes();
+            var segundos = hoy.getSeconds();
+            var milisegundos = hoy.getMilliseconds();
+        
+            // if (horas < 10) { horas = '0' + horas; }
+            // if (minutos < 10) { minutos = '0' + minutos; }
+            // if (segundos < 10) { segundos = '0' + segundos; }
+        
+        // Horas, minutos, segundos y milisegundos con el formato: 12 horas, 23 minutos, 10 segundos, 123 ms.
+            document.getElementById("formato").innerHTML = horas + " horas, " + minutos + " minutos, " + segundos + " segundos, " + milisegundos + " milisegundos.";
+        }
+        </script>
+        
+        </head>
+        
+        <body>
+        <div>
+        <h4 id="formato" style="text-align: center;"></h4>
+        
+        <script type="text/javascript">
+        mostrar_hora();
+        var encendido = true;
+        var reloj_encendido = setInterval(mostrar_hora, 1); //intervalo del evento a 1 ms
+        
+        // Hacer que el reloj pare al hacer click sobre él (si está en marcha). Y que vuelva a arrancar al hacer click sobre él cuando esté parado.
+        function iniciar_parar() {
+            if (encendido==true) {
+            clearInterval(reloj_encendido);
+            encendido = false;
+            }
+            else {
+            encendido = true;
+            reloj_encendido = setInterval(mostrar_hora, 1); //intervalo del evento a 1 ms
+            }
+          }
+        
+        // manejador para el evento click
+        var click = document.getElementById("formato");
+        click.addEventListener('click', iniciar_parar);
+        </script>
+        
+        <p>Haga click sobre él reloj para parar/continuar </p>
+        </div>
+        
+        //--//--///--///--//--//
+
+      <h2>Cuarto algoritmo</h2>
+      <button onclick="suma()">SUMA</button>
+      <div id="figura"></div>
+      <p id="suma"></p>
+
+<script type="text/javascript">
+var resultado=[""];
+var respuesta = prompt('Introduzca un número para comenzar la suma \n\t\to "acabar" para salir.');
+// for(contador; condición; modcont){...}
+for (numero = 0; respuesta !== "acabar"; numero+=numero) { // condición de permanencia
+if (isNaN(respuesta)){
+    respuesta = respuesta.replace(",",".");
+} 
+if (isNaN(respuesta) || respuesta == null || respuesta == ""){ 
+    alert("Entrada errónea, vuelva a intentarlo.");
+    respuesta = prompt('Introduzca "acabar" para salir \no nuevo número para sumarlo: ' + numero +'');
+  } else { 
+  numero+=parseFloat(respuesta), resultado.push(numero);
+  respuesta = prompt('Introduzca "acabar" para salir \no nuevo número para sumarlo: ' + resultado.join("\n") +'');
+}
+} //final de for
+document.getElementById("suma").innerHTML = "<div>Los numeros introducidos suman <b>" + numero + "</b></div>";
+</script>
+
+<div><a href="Mod7_bucle_for.html" > Recargar esta página </a></div>
+<div><a href="Mod7_bucle_while.html" > Ir a Suma con while ... </a></div>
+
+//--//--///--///--//--//
+
+      <h2>Quinto algoritmo</h2>
+      <input type="text" id="text"></input>
+      <input type="button" value="Cargar Ejemplo" onclick="cargarejemplo()"></input>
+      <br><br><input type="button" value="calcular" onclick="calcular()"></input>
+      <input type="button" value="Reiniciar" onclick="Reiniciar()">
+      <p id="array"></p>
+      <p id="resultado"></p>
+      <script>
+      function cargarejemplo(){
+      document.getElementById("text").value="5,99,43,12,37";
+      }
+      function Reiniciar(){
+      location.reload();
+      }
+      function calcular(){
+      var array = document.getElementById("text").value.split(/,/);
+      var mayor=-Infinity,menor=+Infinity,suma=0,media=0;
+      //SUMA
+      for(i=0;i<array.length;i++){
+      suma=parseInt(array[i])+suma;
+      }
+      //MEDIA
+      media=suma/array.length;
+      //MENOR
+      for(i=0;i<array.length;i++){
+      if(parseInt(array[i])<menor) menor=array[i];
+      }
+      //MAYOR
+      for(i=0;i<array.length;i++){
+      if(parseInt(array[i])>mayor) mayor=array[i];
+      }
+      //RESULTADO
+      document.getElementById("resultado").innerHTML="La suma es:"+suma+"<br>"+
+                                                     "La media es:"+media+"<br>"+
+                                                     "El mayor es:"+mayor+"<br>"+
+                                                     "El menor es:"+menor+"<br>"
+      }
+      </script>
+      }
+      
+      //--//--///--///--//--//
+
+      <h2>Sexto algoritmo</h2>
+
+      <p>Introduce los primeros enteros separados por comas</p>
+      <input type="text" id="ejemplo1">
+      <input type="button" value="Ejemplo1" onclick="ejemplo1()">
+      <p>Introduce los segundos enteros separados por comas</p>
+      <input type="text" id="ejemplo2">
+      <input type="button" value="Ejemplo2" onclick="ejemplo2()">
+      <p><input type="button" value="Concatenar" onclick="concatenar()"></p>
+      <input type="button" value="Reiniciar" onclick="Reiniciar()">
+      <p id="resultado"></p>
+      <script>
+      function ejemplo1()
+      {
+          document.getElementById("ejemplo1").value= "12,15,29,37,85";
+      }
+      var miri=[];
+      function ejemplo2(){
+      //Insertaré el ejemplo de modo aleatorio
+          for(i=0;i<5;i++)
+          {
+              miri.push(parseInt(Math.random()*100));
+          }
+          document.getElementById("ejemplo2").value= miri;
+      }
+      var aux=[];
+      function concatenar(){
+          var array1=document.getElementById("ejemplo1").value.split(/,/);
+          var array2=document.getElementById("ejemplo2").value.split(/,/);
+          for(i=0;i<array1.length;i++)
+          {
+              aux.push(array1[i]);
+              aux.push(array2[i]);
+          }    
+          document.getElementById("resultado").innerHTML=aux;
+      }
+      function Reiniciar(){
+          window.location.href = 'ejercicio2.html'; 
+          //location.reload(); //recargar la página web
+      }
+      </script>
+
+       //--//--///--///--//--//
+
+      <h2>Septimo algoritmo</h2>
+      <script>
+        var n=prompt("Introduce los números que deseas que contenga el array");
+        var array=[];
+        down(n);
+        function down(n)
+        {
+            for (i=n; i>=1;i--){
+                array.push(i);
+            }
+            
+        }
+        document.write(array);
+        </script>
+         
+         
+
+      <h2>Octavo algoritmo</h2>
+      
+
+      <p id="demo">Da click</p>
+      
+      <script>
+      document.getElementById("demo").onclick = function() {myFunction()};
+      
+      function myFunction() {
+        document.getElementById("demo").innerHTML = "HAZ DADO CLICK!";
+      }
+      </script>
+
+       
+
+      <h2>Noveno algoritmo</h2>
+      <button type="button"
+      onclick="document.getElementById('demo').innerHTML = Date()">
+      Click me to display Date and Time.</button>
+      
+      <p id="demo"></p>
+
+      
+
+      <h2>Decimo algoritmo</h2>
+      
+      <button onclick="document.getElementById('myImage').src='img/pic_bulbon.gif'">Turn on the light</button>
+      
+      <img id="myImage" src="img/pic_bulboff.gif" style="width:100px">
+      
+      <button onclick="document.getElementById('myImage').src='img/pic_bulboff.gif'">Turn off the light</button>
+     
+      
+
+      <h2>Once algoritmo</h2>
+      <div id="juego">
+        <table>
+          <tr>
+            <td id="0" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="1" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="2" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="3" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          </tr>
+          <tr>
+            <td id="4" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="5" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="6" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="7" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          </tr>
+          <tr>
+            <td id="8" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="9" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="10" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="11" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          </tr>
+          <tr>
+            <td id="12" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="13" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="14" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+            <td id="15" class="letra" onclick="girarCarta()" data-valor="valor">?</td>
+          </tr>
+          </table>
+      </div>
+    <div class="centrar">
+      <input type="button" value="Iniciar" onclick="iniciarJuego()" />  
+      <input type="button" value="Reset" onclick="resetearJuego()" /> 
+    </div>
+    
+    
+
+      <h2>Doce algoritmo</h2>
+
+      <button onclick="porcentaje_hombre_mujer()"> ALGORITMO PORCENTAJE</button>
+
+      
+</form>
+</body>
+</html>
